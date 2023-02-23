@@ -23,13 +23,14 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: kosbalint/anton-apps/${{ github.event.repository.name }}
+          images: registry.gitlab.com/kosbalint/anton-apps/${{ github.event.repository.name }}
           flavor: |
             latest=false
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v3
         with:
+          registry: registry.gitlab.com
           context: .
           push: true
           tags: ${{ steps.meta.outputs.tags }}
