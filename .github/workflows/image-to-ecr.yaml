@@ -23,7 +23,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: ${{ secrets.GITLAB_USERNAME }}/anton-apps/${{ github.event.repository.name }}
+          images: kosbalint/anton-apps/${{ github.event.repository.name }}
           flavor: |
             latest=false
 
