@@ -9,12 +9,10 @@ WORKDIR /code
 
 # 👇 Copy config files and source
 COPY package*.json tsconfig.json ./
-COPY .npmrc.docker .npmrc
 COPY prisma ./prisma/
 
 # 👇 Install deps and build source
 RUN npm ci
-RUN rm .npmrc
 
 COPY src ./src
 RUN npm run build
